@@ -1,2 +1,4 @@
-package ma.store.userservice.entities;public class User {
+package ma.store.userservice.entities;
+
+public class User {
 }
