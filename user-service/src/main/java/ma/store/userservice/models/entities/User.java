@@ -1,4 +1,4 @@
-package ma.store.userservice.entities;
+package ma.store.userservice.models.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,14 +10,13 @@ import lombok.*;
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter @ToString
 @Builder
 public class User {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_user;
     private String name_user;
     private  String email;
-
+    private  String password;
+    private  String img_name;
     private String role;
-
-
 
 }
