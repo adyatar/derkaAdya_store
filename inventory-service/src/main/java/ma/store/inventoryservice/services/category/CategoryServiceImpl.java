@@ -24,11 +24,20 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category getCategoryByID(Long id) {
-        return categoryRepository.findById(id).orElseThrow();
+        return categoryRepository.findById(id).orElseThrow(()->new RuntimeException("Category Not Found!!!"));
     }
 
     @Override
     public void addCategory(Category category) {
        categoryRepository.save(category);
+    }
+
+    @Override
+    public void deleteCategory(Long id) {
+        if(!categoryRepository.existsById(id)) {
+            throw new RuntimeException("Category Not Found!!!");
+        }
+            categoryRepository.deleteById(id);
+
     }
 }

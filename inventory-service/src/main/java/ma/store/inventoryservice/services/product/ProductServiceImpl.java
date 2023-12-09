@@ -25,6 +25,16 @@ private ProductRepository productRepository;
 
     @Override
     public void addProduct(Product product) {
+
       productRepository.save(product);
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+        if(!productRepository.existsById(id)) {
+            throw new RuntimeException("Product Not Found!!!");
+        }
+        productRepository.deleteById(id);
+
     }
 }
