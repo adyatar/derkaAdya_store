@@ -24,8 +24,6 @@ public class UserServiceApplication {
                   .img_name("hhhhhhhhhhhh")
                   .role("Prime Minister")
                   .build();
-
-
           userRepository.save(user);
         };
     }

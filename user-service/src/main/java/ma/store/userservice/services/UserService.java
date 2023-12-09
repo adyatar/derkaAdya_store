@@ -1,4 +1,4 @@
-package ma.store.userservice.services.Impl;
+package ma.store.userservice.services;
 
 
 import ma.store.userservice.models.entities.User;
