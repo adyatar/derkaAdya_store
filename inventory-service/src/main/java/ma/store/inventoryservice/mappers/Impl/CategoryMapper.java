@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class CategoryMapper implements Mapper<Category, CategoryDto> {
 
-    private ModelMapper mapper;
+    private final ModelMapper mapper;
     @Override
     public Category mapTo(CategoryDto categoryDto) {
         return mapper.map(categoryDto,Category.class);

@@ -33,10 +33,10 @@ public class CategoryController {
     }
 
     @PostMapping("/category")
-    public ResponseEntity addProduct(@RequestBody CategoryDto categoryDto){
+    public void addProduct(@RequestBody CategoryDto categoryDto){
         Category category = mapper.mapTo(categoryDto);
         categoryService.addCategory(category);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+       // return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
 
