@@ -6,6 +6,8 @@ import ma.store.inventoryservice.config.ConfigMapper;
 import ma.store.inventoryservice.mappers.Mapper;
 import ma.store.inventoryservice.models.dto.ProductDto;
 import ma.store.inventoryservice.models.entities.Product;
+import ma.store.inventoryservice.repositories.CategoryRepository;
+import ma.store.inventoryservice.repositories.ProductRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;

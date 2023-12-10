@@ -2,7 +2,6 @@ package ma.store.inventoryservice.models.dto;
 
 
 import lombok.*;
-import ma.store.inventoryservice.models.entities.Category;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -13,5 +12,5 @@ public class ProductDto {
     private  String desc_prod;
     private  Double price;
     private  int qte_prod;
-    private Category category;
+    private Long category;
 }
