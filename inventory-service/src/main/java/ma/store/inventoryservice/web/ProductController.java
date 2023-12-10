@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @RestController
+@RequiredArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
+    private final ProductService productService;
     private final Mapper<Product, ProductDto> mapper;
-
 
     @GetMapping("/products")
     public List<Product> getAllProducts()

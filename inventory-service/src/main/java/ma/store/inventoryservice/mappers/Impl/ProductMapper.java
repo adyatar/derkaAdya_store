@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Component
 @RequiredArgsConstructor
 public class ProductMapper implements Mapper<Product, ProductDto> {
-    private ModelMapper mapper;
+
+    private final ModelMapper mapper;
+
     @Override
     public Product mapTo(ProductDto productDto) {
         return mapper.map(productDto , Product.class);
