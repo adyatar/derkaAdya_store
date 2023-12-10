@@ -12,5 +12,5 @@ public class ProductDto {
     private  String desc_prod;
     private  Double price;
     private  int qte_prod;
-    private Long category;
+    private Long id_cat;
 }

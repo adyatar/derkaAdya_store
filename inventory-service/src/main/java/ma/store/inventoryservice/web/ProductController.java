@@ -7,6 +7,7 @@ import ma.store.inventoryservice.models.dto.CategoryDto;
 import ma.store.inventoryservice.models.dto.ProductDto;
 import ma.store.inventoryservice.models.entities.Category;
 import ma.store.inventoryservice.models.entities.Product;
+import ma.store.inventoryservice.services.category.CategoryService;
 import ma.store.inventoryservice.services.product.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+
     private final Mapper<Product, ProductDto> mapper;
 
     @GetMapping("/products")

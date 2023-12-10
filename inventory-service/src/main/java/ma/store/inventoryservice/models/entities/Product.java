@@ -19,4 +19,6 @@ public class Product {
     @JoinColumn(name = "id_cat")
     @JsonIgnore
     private Category category;
+    @Transient
+    private Long id_cat;
 }
