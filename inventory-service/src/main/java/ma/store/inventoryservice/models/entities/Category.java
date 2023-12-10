@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor
-@Getter @Setter @ToString
+@Getter @Setter
 @Builder
 public class Category {
     @Id
