@@ -19,10 +19,6 @@ public class Cart {
 private int qte;
 private Double price;
 private double somme;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cat")
-    @JsonIgnore
-    private Order order;
 
 
 }
