@@ -2,7 +2,7 @@ package ma.store.orderservice.services.order;
 
 
 
-import ma.store.orderservice.models.entities.Order;
+import ma.store.orderservice.models.entities.Ordere;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.List;
 @Service
 public interface OrderService {
 
-    List<Order> getAllOrders();
+    List<Ordere> getAllOrders();
 
-    Order getOrderByID(Long id);
+    Ordere getOrderByID(Long id);
 
-    void addOrder(Order order);
+    void addOrder(Ordere order);
 
     void deleteOrder(Long id);
 

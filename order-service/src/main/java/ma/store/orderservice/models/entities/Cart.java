@@ -12,17 +12,13 @@ import java.util.Set;
 @Builder
 @IdClass(MyCompositId.class)
 public class Cart {
-    @Id
+@Id
     private Long id_prod;
-    @Id
+@Id
     private Long id_user;
-    private int qte;
-    private Double price;
-    private double somme;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cat")
-    @JsonIgnore
-    private Order order;
+private int qte;
+private Double price;
+private double somme;
 
 
 }
