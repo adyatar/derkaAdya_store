@@ -21,14 +21,14 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public List<CartDto> getAllCarts() {
-
        List<Cart> carts=cartRepository.findAll();
+
       return  carts.stream().map(mapper::mapFrom).collect(Collectors.toList());
     }
 
     @Override
     public CartDto getCartById(Long id) {
-        CartDto cartDto=mapper.mapFrom(cartRepository.findById(id).get());
+        CartDto cartDto=mapper.mapFrom(cartRepository.findById(id).orElseThrow(()->new RuntimeException("Not Found!!")));
       return cartDto;
     }
 

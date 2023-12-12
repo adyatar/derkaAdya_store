@@ -1,6 +1,7 @@
 package ma.store.cartservice.services.Impl;
 
 import lombok.RequiredArgsConstructor;
+import ma.store.cartservice.clients.ProductServiceClient;
 import ma.store.cartservice.mapper.Mapper;
 import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.Entitie.CartItem;
@@ -18,10 +19,12 @@ import java.util.stream.Collectors;
 public class CartItemServiceImpl implements CartItemService {
     private Mapper<CartItem, CartItemDto> mapper;
     private final CartItemRepository cartItemRepository;
+    private final ProductServiceClient productServiceClient;
     @Override
     public List<CartItemDto> getAllCartItem() {
         List<CartItem> cartItem=cartItemRepository.findAll();
-        return  cartItem.stream().map(mapper::mapFrom).collect(Collectors.toList());
+        cartItem.forEach(prod->prod.setProduct(productServiceClient.getProductById(prod.getProductId())));
+        return cartItem.stream().map(mapper::mapFrom).collect(Collectors.toList());
     }
 
     @Override

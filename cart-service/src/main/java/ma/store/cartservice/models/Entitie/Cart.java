@@ -18,7 +18,5 @@ public class Cart {
     private Long id;
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<CartItem> cartItems;
-  /*  @Transient
-    private User user;*/
     private Long userId;
 }

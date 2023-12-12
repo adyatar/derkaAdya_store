@@ -1,6 +1,5 @@
 package ma.store.cartservice.services;
 
-import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.dto.CartDto;
 import org.springframework.stereotype.Service;
 
