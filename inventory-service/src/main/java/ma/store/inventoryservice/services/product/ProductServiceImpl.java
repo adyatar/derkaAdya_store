@@ -1,6 +1,8 @@
 package ma.store.inventoryservice.services.product;
 
 import lombok.RequiredArgsConstructor;
+import ma.store.inventoryservice.mappers.Mapper;
+import ma.store.inventoryservice.models.dto.ProductDto;
 import ma.store.inventoryservice.models.entities.Product;
 import ma.store.inventoryservice.repositories.CategoryRepository;
 import ma.store.inventoryservice.repositories.ProductRepository;
@@ -15,6 +17,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final CategoryService categoryService;
+    private final Mapper<Product, ProductDto> mapper;
 
     @Override
     public List<Product> getAllProducts() {
@@ -22,8 +25,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductByID(Long id) {
-        return  productRepository.findById(id).orElseThrow();
+    public ProductDto getProductByID(Long id) {
+        Product product=  productRepository.findById(id).orElseThrow();
+        ProductDto productDto=mapper.mapFrom(product);
+        return productDto;
     }
 
     @Override
