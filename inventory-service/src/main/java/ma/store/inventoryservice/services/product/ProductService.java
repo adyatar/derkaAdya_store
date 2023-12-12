@@ -1,6 +1,7 @@
 package ma.store.inventoryservice.services.product;
 
 
+import ma.store.inventoryservice.models.dto.ProductDto;
 import ma.store.inventoryservice.models.entities.Product;
 
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    Product getProductByID(Long id);
+    ProductDto getProductByID(Long id);
 
     void addProduct(Product product);
 

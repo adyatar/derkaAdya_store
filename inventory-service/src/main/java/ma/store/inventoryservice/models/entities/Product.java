@@ -15,6 +15,7 @@ public class Product {
     private  String desc_prod;
     private  Double price;
     private  int qte_prod;
+    private String image_prod;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cat")
     @JsonIgnore

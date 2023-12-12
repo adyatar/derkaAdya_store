@@ -48,7 +48,7 @@ public class InventoryServiceApplication {
 					.desc_prod("Latest model smartphone")
 					.price(800.00)
 					.qte_prod(100)
-					.category(category2)
+					.category(category1)
 					.build();
 
 			// Save products
