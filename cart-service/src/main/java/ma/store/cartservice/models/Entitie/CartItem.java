@@ -1,9 +1,9 @@
-package ma.store.cartservice.Entitie;
+package ma.store.cartservice.models.Entitie;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import ma.store.cartservice.dto.ProductDto;
+import ma.store.cartservice.models.Product;
 
 @Entity
 @Getter
@@ -23,6 +23,6 @@ public class CartItem {
     private int qte;
     private Double price;
     @Transient
-    private ProductDto product;
+    private Product product;
     private Long productId;
 }

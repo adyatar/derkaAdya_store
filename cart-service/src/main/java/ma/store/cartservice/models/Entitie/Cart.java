@@ -1,4 +1,4 @@
-package ma.store.cartservice.Entitie;
+package ma.store.cartservice.models.Entitie;
 
 import jakarta.persistence.*;
 import lombok.*;
