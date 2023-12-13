@@ -7,7 +7,8 @@ import ma.store.cartservice.models.Product;
 @Getter@Setter@Builder@NoArgsConstructor@AllArgsConstructor
 public class CartItemDto {
     private Long id;
-    private Cart cart;
+    ///
+   // private Cart cart;
     private int qte;
     private Double price;
     private Product product;

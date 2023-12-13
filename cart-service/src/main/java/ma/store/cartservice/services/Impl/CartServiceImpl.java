@@ -1,10 +1,12 @@
 package ma.store.cartservice.services.Impl;
 
 import lombok.RequiredArgsConstructor;
+import ma.store.cartservice.clients.ProductServiceClient;
 import ma.store.cartservice.mapper.Mapper;
 import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.Entitie.CartItem;
 import ma.store.cartservice.models.dto.CartDto;
+import ma.store.cartservice.repositories.CartItemRepository;
 import ma.store.cartservice.repositories.CartRepository;
 import ma.store.cartservice.services.CartItemService;
 import ma.store.cartservice.services.CartService;
@@ -17,7 +19,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
     private final CartRepository cartRepository;
-    private Mapper<Cart,CartDto> mapper;
+    private final ProductServiceClient productServiceClient;
+    private final Mapper<Cart,CartDto> mapper;
+    private final CartItemService cartItemService;
+    private final CartItemRepository cartItemRepository;
 
     @Override
     public List<CartDto> getAllCarts() {

@@ -1,6 +1,7 @@
 package ma.store.cartservice.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.dto.CartDto;
 import ma.store.cartservice.services.CartService;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@ControllerAdvice
 public class CartController {
 
     private final CartService cartService;
@@ -27,6 +29,7 @@ public class CartController {
         CartDto cartDto = cartService.getCartById(id);
         return cartDto;
     }
+
 
     @PostMapping("/cart")
     public void addCart(@RequestBody CartDto cartDto){

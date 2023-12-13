@@ -8,6 +8,7 @@ import lombok.*;
 @Setter
 @Builder
 public class ProductDto {
+    private Long id_prod;
     private String name_prod;
     private  String desc_prod;
     private  String image_prod;
