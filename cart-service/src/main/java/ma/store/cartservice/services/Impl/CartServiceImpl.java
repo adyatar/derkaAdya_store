@@ -5,6 +5,7 @@ import ma.store.cartservice.clients.ProductServiceClient;
 import ma.store.cartservice.mapper.Mapper;
 import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.Entitie.CartItem;
+import ma.store.cartservice.models.Product;
 import ma.store.cartservice.models.dto.CartDto;
 import ma.store.cartservice.repositories.CartItemRepository;
 import ma.store.cartservice.repositories.CartRepository;
@@ -18,21 +19,28 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
+
     private final CartRepository cartRepository;
     private final ProductServiceClient productServiceClient;
     private final Mapper<Cart,CartDto> mapper;
-    private final CartItemService cartItemService;
-    private final CartItemRepository cartItemRepository;
+
 
     @Override
     public List<CartDto> getAllCarts() {
        List<Cart> carts=cartRepository.findAll();
-
+        carts.forEach(cart->cart.getCartItems().forEach(cartItem -> {
+            Product product = productServiceClient.getProductById(cartItem.getProductId());
+            cartItem.setProduct(product);
+        }));
       return  carts.stream().map(mapper::mapFrom).collect(Collectors.toList());
     }
 
     @Override
     public CartDto getCartById(Long id) {
+        Cart cart1 = cartRepository.findById(id).get();
+        cart1.getCartItems().forEach(cartItem->cartItem.setProduct(
+                productServiceClient.getProductById(cartItem.getProductId())
+        ));
         CartDto cartDto=mapper.mapFrom(cartRepository.findById(id).orElseThrow(()->new RuntimeException("Not Found!!")));
       return cartDto;
     }
