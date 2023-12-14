@@ -1,8 +1,8 @@
-package ma.store.cartservice.clients;
+package ma.store.orderservice.clients;
 
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import ma.store.cartservice.models.Product;
+import ma.store.orderservice.models.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

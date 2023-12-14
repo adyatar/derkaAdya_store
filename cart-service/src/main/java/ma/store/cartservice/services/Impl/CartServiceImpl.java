@@ -41,7 +41,8 @@ public class CartServiceImpl implements CartService {
         cart1.getCartItems().forEach(cartItem->cartItem.setProduct(
                 productServiceClient.getProductById(cartItem.getProductId())
         ));
-        CartDto cartDto=mapper.mapFrom(cartRepository.findById(id).orElseThrow(()->new RuntimeException("Not Found!!")));
+
+        CartDto cartDto=mapper.mapFrom(cart1);
       return cartDto;
     }
 

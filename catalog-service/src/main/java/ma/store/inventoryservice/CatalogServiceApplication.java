@@ -1,6 +1,5 @@
 package ma.store.inventoryservice;
 
-import lombok.Builder;
 import ma.store.inventoryservice.models.entities.Category;
 import ma.store.inventoryservice.models.entities.Product;
 import ma.store.inventoryservice.repositories.CategoryRepository;
@@ -11,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class InventoryServiceApplication {
+public class CatalogServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InventoryServiceApplication.class, args);
+		SpringApplication.run(CatalogServiceApplication.class, args);
 	}
 	@Bean
 	CommandLineRunner start(CategoryRepository categoryRepository, ProductRepository productRepository)
