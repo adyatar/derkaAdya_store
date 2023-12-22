@@ -14,4 +14,6 @@ public interface CartService {
     void addCart(CartDto cartDto);
 
     void deleteCart(Long id);
+
+    List<CartDto> getCartsByUserId(Long id);
 }

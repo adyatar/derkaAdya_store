@@ -40,6 +40,8 @@ public class CatalogServiceApplication {
 					.price(1200.00)
 					.qte_prod(50)
 					.category(category1)
+					.image_prod("huawei.png")
+					
 					.build();
 
 			Product product2 = Product.builder()
@@ -48,6 +50,7 @@ public class CatalogServiceApplication {
 					.price(800.00)
 					.qte_prod(100)
 					.category(category1)
+					.image_prod("hero.png")
 					.build();
 
 			// Save products

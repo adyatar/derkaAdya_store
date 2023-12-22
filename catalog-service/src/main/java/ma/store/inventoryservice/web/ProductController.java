@@ -23,6 +23,7 @@ public class ProductController {
 
     private final Mapper<Product, ProductDto> mapper;
 
+
     @GetMapping("/products")
     public List<Product> getAllProducts()
     {
