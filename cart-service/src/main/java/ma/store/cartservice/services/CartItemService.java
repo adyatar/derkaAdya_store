@@ -1,5 +1,6 @@
 package ma.store.cartservice.services;
 
+import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.Entitie.CartItem;
 import ma.store.cartservice.models.dto.CartItemDto;
 import org.springframework.stereotype.Service;
@@ -15,4 +16,5 @@ public interface CartItemService {
     void addCartItem(CartItemDto cartItem);
 
     void deleteCartItem(Long id);
+
 }

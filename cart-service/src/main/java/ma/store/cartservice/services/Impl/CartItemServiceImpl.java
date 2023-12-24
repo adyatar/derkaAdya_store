@@ -2,8 +2,11 @@ package ma.store.cartservice.services.Impl;
 
 import lombok.RequiredArgsConstructor;
 import ma.store.cartservice.clients.ProductServiceClient;
+import ma.store.cartservice.clients.UserServiceClient;
 import ma.store.cartservice.mapper.Mapper;
+import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.Entitie.CartItem;
+import ma.store.cartservice.models.User;
 import ma.store.cartservice.models.dto.CartItemDto;
 import ma.store.cartservice.repositories.CartItemRepository;
 import ma.store.cartservice.services.CartItemService;
@@ -47,4 +50,6 @@ public class CartItemServiceImpl implements CartItemService {
         }
         else throw new RuntimeException("not found!!!");
     }
+
+
 }

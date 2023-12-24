@@ -1,7 +1,6 @@
 package ma.store.cartservice.web;
 
 import lombok.RequiredArgsConstructor;
-import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.dto.CartDto;
 import ma.store.cartservice.services.CartService;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +22,7 @@ public class CartController {
         return cartList;
     }
 
+    
     @GetMapping("/cart/{id}")
     public CartDto getCartById(@PathVariable Long id)
     {

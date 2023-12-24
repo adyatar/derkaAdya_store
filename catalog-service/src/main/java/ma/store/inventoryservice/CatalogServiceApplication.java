@@ -1,5 +1,6 @@
 package ma.store.inventoryservice;
 
+import ma.store.inventoryservice.config.keysConfig;
 import ma.store.inventoryservice.models.entities.Category;
 import ma.store.inventoryservice.models.entities.Product;
 import ma.store.inventoryservice.repositories.CategoryRepository;
@@ -7,9 +8,11 @@ import ma.store.inventoryservice.repositories.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@EnableConfigurationProperties(keysConfig.class)
 public class CatalogServiceApplication {
 
 	public static void main(String[] args) {

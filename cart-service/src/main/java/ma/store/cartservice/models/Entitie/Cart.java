@@ -2,6 +2,7 @@ package ma.store.cartservice.models.Entitie;
 
 import jakarta.persistence.*;
 import lombok.*;
+import ma.store.cartservice.models.User;
 
 import java.util.Set;
 

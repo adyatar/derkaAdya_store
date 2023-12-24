@@ -1,18 +1,20 @@
 package ma.store.cartservice;
 
+import ma.store.cartservice.config.keysConfig;
 import ma.store.cartservice.models.Entitie.Cart;
 import ma.store.cartservice.models.Entitie.CartItem;
 import ma.store.cartservice.repositories.CartRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import java.util.Set;
 
 @EnableFeignClients
 @SpringBootApplication
-///
+@EnableConfigurationProperties(keysConfig.class)
 public class CartServiceApplication {
 
     public static void main(String[] args) {

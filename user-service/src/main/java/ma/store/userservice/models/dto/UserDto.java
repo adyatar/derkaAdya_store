@@ -8,10 +8,7 @@ import lombok.*;
 @Setter
 @Builder
 public class UserDto {
-    private Long id_user;
-    private String name_user;
+    private String name;
     private  String email;
-    private  String password;
-    private  String img_name;
-    private String role;
+    private  String imgName;
 }

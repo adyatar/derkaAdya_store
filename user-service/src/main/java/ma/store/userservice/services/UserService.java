@@ -1,17 +1,21 @@
 package ma.store.userservice.services;
 
 
+import ma.store.userservice.models.dto.UserDto;
 import ma.store.userservice.models.entities.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface UserService {
 
     List<User> getAllUsers();
 
-    User getUserByID(Long id);
+    UserDto getUserByID(Long id);
+
+    Optional<User> getUserByEmail(String email);
 
     void addUser(User user);
 

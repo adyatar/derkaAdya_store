@@ -11,8 +11,6 @@ public class CartDto {
 
     private Long id;
     private Set<CartItem> cartItems;
-    /*  @Transient
-      private User user;*/
     private Long userId;
 
 }

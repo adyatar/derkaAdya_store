@@ -1,7 +1,6 @@
 package ma.store.orderservice.services;
 
 
-import ma.store.orderservice.models.Entitie.OrderItem;
 import ma.store.orderservice.models.dto.OrderItemDto;
 import org.springframework.stereotype.Service;
 
