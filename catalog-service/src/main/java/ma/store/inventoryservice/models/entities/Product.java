@@ -17,9 +17,9 @@ public class Product {
     private  int qte_prod;
     private String image_prod;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cat")
+    @JoinColumn(name = "idCat")
     @JsonIgnore
     private Category category;
     @Transient
-    private Long id_cat;
+    private Long idCat;
 }

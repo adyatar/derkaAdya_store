@@ -11,6 +11,7 @@ import ma.store.inventoryservice.services.category.CategoryService;
 import ma.store.inventoryservice.services.product.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class ProductController {
         return productService.getProductByID(id);
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @PostMapping("/product")
     public ResponseEntity addProduct(@RequestBody ProductDto productDto){
         Product product = mapper.mapTo(productDto);
@@ -42,6 +44,8 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @PostMapping("/product/update")
     public ResponseEntity updateProduct(@RequestBody ProductDto productDto){
         Product product = mapper.mapTo(productDto);
@@ -49,6 +53,7 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @DeleteMapping("/product/{id}")
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);

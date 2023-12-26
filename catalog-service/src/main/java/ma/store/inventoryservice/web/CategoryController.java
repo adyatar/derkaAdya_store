@@ -31,7 +31,7 @@ public class CategoryController {
     {
         return categoryService.getCategoryByID(id);
     }
-
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @PostMapping("/category")
     public void addProduct(@RequestBody CategoryDto categoryDto){
         Category category = mapper.mapTo(categoryDto);
@@ -39,7 +39,7 @@ public class CategoryController {
        // return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
-
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @DeleteMapping("/category/{id}")
     public void deleteCategory(@PathVariable("id") Long id){
         categoryService.deleteCategory(id);

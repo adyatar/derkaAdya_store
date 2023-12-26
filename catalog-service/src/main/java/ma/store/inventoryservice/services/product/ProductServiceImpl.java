@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void addProduct(Product product) {
-        product.setCategory(categoryService.getCategoryByID(product.getId_cat()));
+        product.setCategory(categoryService.getCategoryByID(product.getIdCat()));
       productRepository.save(product);
     }
 
@@ -47,7 +47,7 @@ public class ProductServiceImpl implements ProductService {
         existingProduct.setPrice(product.getPrice());
         existingProduct.setDesc_prod(product.getDesc_prod());
         existingProduct.setQte_prod(product.getQte_prod());
-        existingProduct.setCategory(categoryService.getCategoryByID(product.getId_cat()));
+        existingProduct.setCategory(categoryService.getCategoryByID(product.getIdCat()));
         existingProduct.setImage_prod(product.getImage_prod());
 
         // Save the updated product. This will perform an update operation because existingProduct has an ID.
