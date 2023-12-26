@@ -1,13 +1,15 @@
 package ma.store.cartservice.services.Impl;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import ma.store.cartservice.clients.ProductServiceClient;
 import ma.store.cartservice.mapper.Mapper;
 import ma.store.cartservice.models.Entitie.Cart;
+import ma.store.cartservice.models.Entitie.CartItem;
 import ma.store.cartservice.models.Product;
 import ma.store.cartservice.models.dto.CartDto;
+import ma.store.cartservice.repositories.CartItemRepository;
 import ma.store.cartservice.repositories.CartRepository;
+import ma.store.cartservice.services.CartItemService;
 import ma.store.cartservice.services.CartService;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ public class CartServiceImpl implements CartService {
     private final ProductServiceClient productServiceClient;
     private final Mapper<Cart,CartDto> mapper;
 
+
     @Override
     public List<CartDto> getAllCarts() {
        List<Cart> carts=cartRepository.findAll();
@@ -34,17 +37,20 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public CartDto getCartById(Long id) {
-        Cart cart = cartRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cart not found with id: " + id));
-        cart.getCartItems().forEach(cartItem->cartItem.setProduct(
+        Cart cart1 = cartRepository.findById(id).get();
+        cart1.getCartItems().forEach(cartItem->cartItem.setProduct(
                 productServiceClient.getProductById(cartItem.getProductId())
         ));
-        return mapper.mapFrom(cart);
+
+        CartDto cartDto=mapper.mapFrom(cart1);
+      return cartDto;
     }
 
     @Override
     public void addCart(CartDto cartDto) {
         Cart cart=mapper.mapTo(cartDto);
         cartRepository.save(cart);
+
     }
 
     @Override
@@ -54,7 +60,30 @@ public class CartServiceImpl implements CartService {
             cartRepository.deleteById(id);
         }
         else throw new RuntimeException("not found!!!");
+
     }
 
+    @Override
+    public List<CartDto> getCartsByUserId(Long id) {
+        if(cartRepository.existsByUserId(id))
+        {
+            List<Cart> carts =cartRepository.getCartsByUserId(id);
+            carts.forEach(cart -> cart.getCartItems().forEach(cartItem -> {
+                Product product=productServiceClient.getProductById(cartItem.getProductId());
+                cartItem.setProduct(product);
+            }));
+            return carts.stream().map(mapper::mapFrom).collect(Collectors.toList());
+        }else throw new RuntimeException();
 
+    }
+    /*
+    *    @Override
+    public List<CartDto> getAllCarts() {
+       List<Cart> carts=cartRepository.findAll();
+        carts.forEach(cart->cart.getCartItems().forEach(cartItem -> {
+            Product product = productServiceClient.getProductById(cartItem.getProductId());
+            cartItem.setProduct(product);
+        }));
+      return  carts.stream().map(mapper::mapFrom).collect(Collectors.toList());
+    }*/
 }

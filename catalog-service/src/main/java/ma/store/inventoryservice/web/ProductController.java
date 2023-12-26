@@ -3,8 +3,11 @@ package ma.store.inventoryservice.web;
 
 import lombok.RequiredArgsConstructor;
 import ma.store.inventoryservice.mappers.Mapper;
+import ma.store.inventoryservice.models.dto.CategoryDto;
 import ma.store.inventoryservice.models.dto.ProductDto;
+import ma.store.inventoryservice.models.entities.Category;
 import ma.store.inventoryservice.models.entities.Product;
+import ma.store.inventoryservice.services.category.CategoryService;
 import ma.store.inventoryservice.services.product.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,7 @@ public class ProductController {
     private final ProductService productService;
 
     private final Mapper<Product, ProductDto> mapper;
+
 
     @GetMapping("/products")
     public List<Product> getAllProducts()
@@ -38,16 +42,16 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+    @PostMapping("/product/update")
+    public ResponseEntity updateProduct(@RequestBody ProductDto productDto){
+        Product product = mapper.mapTo(productDto);
+        productService.updateProduct(product);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     @DeleteMapping("/product/{id}")
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);
-    }
-
-    @GetMapping("/products/{id}")
-    public List<Product> getProductsByCategoryId(@PathVariable Long id)
-    {
-        return productService.getProductsByCategoryId(id);
     }
 
 }

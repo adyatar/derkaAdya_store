@@ -52,6 +52,18 @@ public class CatalogServiceApplication {
 					.desc_prod("IPhone 15 Pro Max with 512 GB")
 					.price(1099.00)
 					.qte_prod(50)
+					.category(headPhones)
+					.image_prod("huawei.png")
+					
+					.build();
+
+			Product product2 = Product.builder()
+					.name_prod("Smartphone")
+					.desc_prod("Latest model smartphone")
+					.price(800.00)
+					.qte_prod(100)
+					.category(headPhones)
+
 					.image_prod("apple.png")
 					.category(phoneCat)
 					.build();

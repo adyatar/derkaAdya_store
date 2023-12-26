@@ -38,6 +38,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void updateProduct(Product product) {
+        // Check if the product with the given ID exists
+        Product existingProduct = productRepository.findById(product.getId_prod()).orElseThrow();
+
+        // Update the properties of the existing product
+        existingProduct.setName_prod(product.getName_prod());
+        existingProduct.setPrice(product.getPrice());
+        existingProduct.setDesc_prod(product.getDesc_prod());
+        existingProduct.setQte_prod(product.getQte_prod());
+        existingProduct.setCategory(categoryService.getCategoryByID(product.getId_cat()));
+        existingProduct.setImage_prod(product.getImage_prod());
+
+        // Save the updated product. This will perform an update operation because existingProduct has an ID.
+        productRepository.save(existingProduct);
+    }
+    @Override
     public void deleteProduct(Long id) {
         if(!productRepository.existsById(id)) {
             throw new RuntimeException("Product Not Found!!!");

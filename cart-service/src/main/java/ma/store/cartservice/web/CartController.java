@@ -30,6 +30,13 @@ public class CartController {
         return cartDto;
     }
 
+//    @GetMapping("/cartByUserId/{id}")
+//    public List<CartDto> getCartByUserId(@PathVariable Long id)
+//    {
+//        return
+//        // cartService.getCartsByUserId(id);
+//    }
+
 
     @PostMapping("/cart")
     public void addCart(@RequestBody CartDto cartDto){
