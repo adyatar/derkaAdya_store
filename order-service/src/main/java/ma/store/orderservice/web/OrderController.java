@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 
 import ma.store.orderservice.models.dto.OrderDto;
 import ma.store.orderservice.services.OrderService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,8 +34,14 @@ public class OrderController {
 
 
     @PostMapping("/order")
-    public void addOrder(@RequestBody OrderDto orderDto){
-        orderService.addOrder(orderDto);
+    public ResponseEntity<?> addOrder(@RequestBody OrderDto orderDto){
+        try {
+            orderService.addOrder(orderDto);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping("/order/{id}")

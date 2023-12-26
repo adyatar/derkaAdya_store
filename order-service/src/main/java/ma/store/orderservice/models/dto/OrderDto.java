@@ -12,10 +12,7 @@ public class OrderDto {
 
     private Long id;
     private Set<OrderItem> orderItems;
-    /*  @Transient
-      private User user;*/
     private Long userId;
-
     private Double totalPrice;
     private Date orderDate;
 

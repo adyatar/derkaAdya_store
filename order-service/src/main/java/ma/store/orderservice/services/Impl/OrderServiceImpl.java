@@ -3,6 +3,7 @@ import lombok.RequiredArgsConstructor;
 import ma.store.orderservice.clients.ProductServiceClient;
 import ma.store.orderservice.mapper.Mapper;
 import ma.store.orderservice.models.Entitie.Order;
+import ma.store.orderservice.models.Entitie.OrderItem;
 import ma.store.orderservice.models.Product;
 import ma.store.orderservice.models.dto.OrderDto;
 import ma.store.orderservice.repositories.OrderRepository;
@@ -44,6 +45,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void addOrder(OrderDto orderDto) {
         Order order=mapper.mapTo(orderDto);
+        if (order.getOrderItems() != null) {
+            for (OrderItem orderItem : order.getOrderItems()) {
+                orderItem.setOrder(order);
+            }
+        }
         orderRepository.save(order);
 
     }

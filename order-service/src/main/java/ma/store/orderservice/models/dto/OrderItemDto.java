@@ -11,9 +11,7 @@ import ma.store.orderservice.models.Product;
 @Getter@Setter@Builder@NoArgsConstructor@AllArgsConstructor
 public class OrderItemDto {
     private Long id;
-
     private int qte;
-
     private Double price;
     private Product product;
     private Long productId;
