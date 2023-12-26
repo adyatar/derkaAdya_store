@@ -63,19 +63,19 @@ public class CartServiceImpl implements CartService {
 
     }
 
-    @Override
-    public List<CartDto> getCartsByUserId(Long id) {
-        if(cartRepository.existsByUserId(id))
-        {
-            List<Cart> carts =cartRepository.getCartsByUserId(id);
-            carts.forEach(cart -> cart.getCartItems().forEach(cartItem -> {
-                Product product=productServiceClient.getProductById(cartItem.getProductId());
-                cartItem.setProduct(product);
-            }));
-            return carts.stream().map(mapper::mapFrom).collect(Collectors.toList());
-        }else throw new RuntimeException();
-
-    }
+//    @Override
+//    public List<CartDto> getCartsByUserId(Long id) {
+//        if(cartRepository.existsByUserId(id))
+//        {
+//            List<Cart> carts =cartRepository.getCartsByUserId(id);
+//            carts.forEach(cart -> cart.getCartItems().forEach(cartItem -> {
+//                Product product=productServiceClient.getProductById(cartItem.getProductId());
+//                cartItem.setProduct(product);
+//            }));
+//            return carts.stream().map(mapper::mapFrom).collect(Collectors.toList());
+//        }else throw new RuntimeException();
+//
+//    }
     /*
     *    @Override
     public List<CartDto> getAllCarts() {
