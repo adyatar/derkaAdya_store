@@ -5,15 +5,18 @@ import lombok.RequiredArgsConstructor;
 import ma.store.userservice.models.dto.TokenRequest;
 import ma.store.userservice.models.entities.User;
 import ma.store.userservice.services.Impl.CustomeUserDetailService;
+import ma.store.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +36,8 @@ public class AuthController {
     private final JwtDecoder jwtDecoder;
     private final AuthenticationManager authenticationManager;
     private final CustomeUserDetailService userDetailsService;
-
+    private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
     @Value("$" + "{security.jwt.token.issuer:ADKSecurity}")
     private String issuer;
 
@@ -96,12 +100,22 @@ public class AuthController {
         return new ResponseEntity<>(idToken,HttpStatus.OK);
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody User request) {
+        if (userService.getUserByEmail(request.getUsername()).isPresent()) {
+            return ResponseEntity.badRequest().body("Username already exists");
+        }
 
-    @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpSession session) {
-        session.invalidate();
-        return ResponseEntity.ok().build();
+        User user = new User();
+        user.setEmail(request.getUsername());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setName(request.getName());
+        user.setRole("USER");
+
+        // Save the user to the database
+        userService.addUser(user);
+
+        return ResponseEntity.ok("{\"message\": \"User registered successfully\"}");
     }
-
 
 }

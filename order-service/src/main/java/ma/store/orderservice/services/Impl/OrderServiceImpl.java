@@ -63,4 +63,10 @@ public class OrderServiceImpl implements OrderService {
         else throw new RuntimeException("not found!!!");
 
     }
+
+    @Override
+    public List<OrderDto> getOrdersByUserId(Long id) {
+        List<Order> order = orderRepository.findByUserId(id);
+        return order.stream().map(mapper::mapFrom).collect(Collectors.toList());
+    }
 }

@@ -42,8 +42,16 @@ public class UserServiceApplication {
                     .imgName("profile.jpg")
                 .role("ADMIN")
                 .build();
+          User user1 = User.builder()
+                  .name("As")
+                  .email("as@gmail.com")
+                    .password("123456")
+                    .imgName("profile.jpg")
+                .role("USER")
+                .build();
             userService.addUser(admin);
             userService.addUser(user);
+            userService.addUser(user1);
         };
     }
 
