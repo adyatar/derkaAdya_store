@@ -42,6 +42,13 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+    @PostMapping("/product/update")
+    public ResponseEntity updateProduct(@RequestBody ProductDto productDto){
+        Product product = mapper.mapTo(productDto);
+        productService.updateProduct(product);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping("/product/{id}")
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);
