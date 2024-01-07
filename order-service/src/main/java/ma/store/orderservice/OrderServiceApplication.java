@@ -1,6 +1,7 @@
 package ma.store.orderservice;
 
 import ma.store.orderservice.clients.ProductServiceClient;
+import ma.store.orderservice.config.KeysConfig;
 import ma.store.orderservice.models.Entitie.Order;
 import ma.store.orderservice.models.Entitie.OrderItem;
 import ma.store.orderservice.models.Product;
@@ -9,6 +10,7 @@ import ma.store.orderservice.repositories.OrderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +21,7 @@ import java.util.Set;
 
 @SpringBootApplication
 @EnableFeignClients
+@EnableConfigurationProperties(KeysConfig.class)
 public class OrderServiceApplication {
 
     public static void main(String[] args) {

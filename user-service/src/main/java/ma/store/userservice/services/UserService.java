@@ -3,6 +3,7 @@ package ma.store.userservice.services;
 
 import ma.store.userservice.models.dto.UserDto;
 import ma.store.userservice.models.entities.User;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public interface UserService {
 
     void addUser(User user);
     long nbrUsers();
+
+    Long findUserIdByEmail(String email);
+
+    void updateUser(Long id, UserDto userDto);
 
 
 

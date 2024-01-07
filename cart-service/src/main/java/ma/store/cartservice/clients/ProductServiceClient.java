@@ -21,13 +21,13 @@ public interface ProductServiceClient {
 
     default Product getDefaultProduct(Long id, Exception e){
         Product product = new Product();
-        product.setId_prod(null);
+        product.setId(null);
         product.setName_prod("Not Availbale");
         product.setDesc_prod("Not Availbale");
         product.setImage_prod("Not Availbale");
         product.setPrice(null);
         product.setQte_prod(0);
-        product.setId_cat(null);
+        product.setIdCat(null);
         return product;
     }
 }

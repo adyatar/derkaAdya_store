@@ -20,7 +20,7 @@ public interface UserServiceClient {
 
     default User getDefaultUser(Long id, Exception e){
         User userDto = new User();
-        userDto.setId_user(null);
+        userDto.setId(null);
         return userDto;
     }
 

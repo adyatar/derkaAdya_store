@@ -8,6 +8,8 @@ import ma.store.orderservice.models.Product;
 import ma.store.orderservice.models.dto.OrderDto;
 import ma.store.orderservice.repositories.OrderRepository;
 import ma.store.orderservice.services.OrderService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -71,9 +73,19 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+<<<<<<< HEAD
     public Double sumTotalPrice() {
         return orderRepository.sumTotalPrice();
     }
 
 
+=======
+    public Long getUserIdFromToken(Authentication authentication) {
+        if (authentication.getPrincipal() instanceof Jwt jwt) {
+            String userIdClaim = "userId";
+            return Long.valueOf(jwt.getClaimAsString(userIdClaim));
+        }
+        return null;
+    }
+>>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e
 }

@@ -1,12 +1,13 @@
-package ma.store.orderservice.models;
+package ma.store.catalogservice.models.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
+import lombok.*;
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class Product {
-
+@Builder
+public class ProductDto {
     private Long id;
     private String name_prod;
     private  String desc_prod;
@@ -14,5 +15,4 @@ public class Product {
     private  Double price;
     private  int qte_prod;
     private Long idCat;
-
 }

@@ -6,7 +6,10 @@ import ma.store.userservice.models.dto.UserDto;
 import ma.store.userservice.models.entities.User;
 import ma.store.userservice.repositories.UserRepository;
 import ma.store.userservice.services.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,7 +48,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+<<<<<<< HEAD
     public long nbrUsers() {
         return userRepository.count();
     }
+=======
+    public Long findUserIdByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return user.getId();
+    }
+
+    @Override
+    public void updateUser(Long id, UserDto userDto) {
+        User user = userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        userRepository.save(user);
+    }
+
+
+>>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e
 }

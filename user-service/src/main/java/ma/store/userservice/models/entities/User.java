@@ -2,6 +2,7 @@ package ma.store.userservice.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import ma.store.userservice.models.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,9 +13,7 @@ import java.util.Collections;
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter @ToString
 @Builder
 
-@Table(name = "db_user_dev")
-
-
+@Table(name = "db_user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,12 +22,12 @@ public class User implements UserDetails {
     private  String email;
     private  String password;
     private  String imgName;
-    private String role;
+    private Role role;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(() -> role);
+        return role == Role.ADMIN ? Collections.singletonList((GrantedAuthority) () -> "ADMIN") : Collections.singletonList((GrantedAuthority) () -> "USER");
     }
 
     @Override

@@ -2,6 +2,7 @@ package ma.store.userservice;
 
 import ma.store.userservice.config.keysConfig;
 import ma.store.userservice.models.entities.User;
+import ma.store.userservice.models.enums.Role;
 import ma.store.userservice.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,22 +33,22 @@ public class UserServiceApplication {
                   .name("Adyataaaaar")
                   .email("adyatar@gmail.com")
                   .password("123456")
-                  .imgName("hhhhhhhhhhhh")
-                  .role("USER")
+                  .imgName("profile.jpg")
+                  .role(Role.USER)
                   .build();
           User admin = User.builder()
                   .name("Achraf")
                   .email("ach@gmail.com")
                     .password("123456")
                     .imgName("profile.jpg")
-                .role("ADMIN")
+                .role(Role.ADMIN)
                 .build();
           User user1 = User.builder()
                   .name("As")
                   .email("as@gmail.com")
                     .password("123456")
                     .imgName("profile.jpg")
-                .role("USER")
+                .role(Role.USER)
                 .build();
             userService.addUser(admin);
             userService.addUser(user);

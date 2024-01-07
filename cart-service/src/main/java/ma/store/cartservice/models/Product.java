@@ -7,12 +7,12 @@ import lombok.Setter;
 @Setter
 public class Product {
 
-    private Long id_prod;
+    private Long id;
     private String name_prod;
     private  String desc_prod;
     private  String image_prod;
     private  Double price;
     private  int qte_prod;
-    private Long id_cat;
+    private Long idCat;
 
 }
