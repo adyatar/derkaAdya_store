@@ -6,13 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor@NoArgsConstructor@Getter@Setter
-public class TokenRequest {
-    private String grantType;
+@NoArgsConstructor@AllArgsConstructor@Getter@Setter
+public class UserRegisterDto {
+    private String name;
     private String email;
     private String password;
-//    private String refreshToken;
-//    private boolean withRefreshToken;
-
-
 }

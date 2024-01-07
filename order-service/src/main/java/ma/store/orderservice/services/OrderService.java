@@ -2,6 +2,7 @@ package ma.store.orderservice.services;
 
 
 import ma.store.orderservice.models.dto.OrderDto;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,5 +16,8 @@ public interface OrderService {
 
     void deleteOrder(Long id);
 
-    public List<OrderDto> getOrdersByUserId(Long id);
+    List<OrderDto> getOrdersByUserId(Long id);
+
+    Long getUserIdFromToken(Authentication authentication);
+
 }

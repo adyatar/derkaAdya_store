@@ -8,6 +8,8 @@ import ma.store.orderservice.models.Product;
 import ma.store.orderservice.models.dto.OrderDto;
 import ma.store.orderservice.repositories.OrderRepository;
 import ma.store.orderservice.services.OrderService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,5 +70,14 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderDto> getOrdersByUserId(Long id) {
         List<Order> order = orderRepository.findByUserId(id);
         return order.stream().map(mapper::mapFrom).collect(Collectors.toList());
+    }
+
+    @Override
+    public Long getUserIdFromToken(Authentication authentication) {
+        if (authentication.getPrincipal() instanceof Jwt jwt) {
+            String userIdClaim = "userId";
+            return Long.valueOf(jwt.getClaimAsString(userIdClaim));
+        }
+        return null;
     }
 }
