@@ -15,4 +15,5 @@ public interface OrderItemService {
     void addOrderItem(OrderItemDto orderItem);
 
     void deleteOrderItem(Long id);
+    long ordersCount();
 }

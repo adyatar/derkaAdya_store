@@ -16,6 +16,12 @@ public class UserController {
 
 private final UserService userService;
 
+    @GetMapping("/users/nbr")
+    public long nbrUsers()
+    {
+        return userService.nbrUsers();
+
+    }
 @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 @GetMapping("/users")
     public List<User> getAllUsers()
@@ -35,6 +41,8 @@ private final UserService userService;
     {
         userService.addUser(user);
     }
+
+
 
 
 

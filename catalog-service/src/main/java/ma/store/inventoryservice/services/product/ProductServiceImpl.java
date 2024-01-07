@@ -66,4 +66,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductsByCategoryId(Long id) {
         return productRepository.findByCategoryIdCat(id);
     }
+
+    @Override
+    public long nbrProducts() {
+        return productRepository.count();
+    }
 }

@@ -16,4 +16,6 @@ public interface OrderService {
     void deleteOrder(Long id);
 
     public List<OrderDto> getOrdersByUserId(Long id);
+
+    Double sumTotalPrice();
 }

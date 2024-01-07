@@ -28,6 +28,11 @@ public class OrderItemController {
         OrderItemDto orderItemDto = orderItemService.getOrderItemById(id);
         return orderItemDto;
     }
+    @GetMapping("/orders/count")
+    public long getOrdersCount()
+    {
+        return orderItemService.ordersCount();
+    }
 
     @PostMapping("/orderitem")
     public void addOrderItem(@RequestBody OrderItemDto orderItemDto){

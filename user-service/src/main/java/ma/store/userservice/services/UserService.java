@@ -18,6 +18,7 @@ public interface UserService {
     Optional<User> getUserByEmail(String email);
 
     void addUser(User user);
+    long nbrUsers();
 
 
 

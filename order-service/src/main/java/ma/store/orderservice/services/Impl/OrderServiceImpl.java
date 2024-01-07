@@ -69,4 +69,11 @@ public class OrderServiceImpl implements OrderService {
         List<Order> order = orderRepository.findByUserId(id);
         return order.stream().map(mapper::mapFrom).collect(Collectors.toList());
     }
+
+    @Override
+    public Double sumTotalPrice() {
+        return orderRepository.sumTotalPrice();
+    }
+
+
 }

@@ -47,4 +47,9 @@ public class OrderItemServiceImpl implements OrderItemService {
         }
         else throw new RuntimeException("not found!!!");
     }
+
+    @Override
+    public long ordersCount() {
+        return orderItemRepository.count();
+    }
 }

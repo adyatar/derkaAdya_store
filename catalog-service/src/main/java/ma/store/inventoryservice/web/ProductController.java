@@ -35,8 +35,13 @@ public class ProductController {
     {
         return productService.getProductByID(id);
     }
+    @GetMapping("/products/nbr")
+    public long nbrProducts()
+    {
+        return productService.nbrProducts();
+    }
 
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+   @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @PostMapping("/product")
     public ResponseEntity addProduct(@RequestBody ProductDto productDto){
         Product product = mapper.mapTo(productDto);
@@ -53,7 +58,7 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+   @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @DeleteMapping("/product/{id}")
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);

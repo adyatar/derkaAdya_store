@@ -21,6 +21,7 @@ public interface ProductService {
     void updateProduct(Product product);
 
     List<Product> getProductsByCategoryId(Long id);
+    long nbrProducts();
 
 
 

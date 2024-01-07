@@ -56,6 +56,12 @@ public class OrderController {
         return ResponseEntity.ok(orders);
     }
 
+    @GetMapping("/orders/money")
+    public double getOrdersMoney()
+    {
+        return orderService.sumTotalPrice();
+    }
+
 
 
 }

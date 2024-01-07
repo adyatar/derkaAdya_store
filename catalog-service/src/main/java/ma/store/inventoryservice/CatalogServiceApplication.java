@@ -24,20 +24,20 @@ public class CatalogServiceApplication {
 		return args -> {
 			Category phoneCat = Category.builder()
 					.name_cat("Phone")
-					.img_name("assets/images/apple.png")
+					.img_name("phoneCat.png")
 					.build();
 
 			Category watchCat = Category.builder()
 					.name_cat("Watch")
-					.img_name("assets/images/watch.png")
+					.img_name("watchCat.png")
 					.build();
 			Category laptop = Category.builder()
 					.name_cat("Laptop")
-					.img_name("assets/images/watch.png")
+					.img_name("laptobCat.jpg")
 					.build();
 			Category headPhones = Category.builder()
 					.name_cat("HeadPhones")
-					.img_name("assets/images/watch.png")
+					.img_name("HeadPhonesCat.jpg")
 					.build();
 
 			// Save categories
@@ -52,21 +52,12 @@ public class CatalogServiceApplication {
 					.desc_prod("IPhone 15 Pro Max with 512 GB")
 					.price(1099.00)
 					.qte_prod(50)
-					.category(headPhones)
+					.category(phoneCat)
 					.image_prod("huawei.png")
 					
 					.build();
 
-			Product product2 = Product.builder()
-					.name_prod("Smartphone")
-					.desc_prod("Latest model smartphone")
-					.price(800.00)
-					.qte_prod(100)
-					.category(headPhones)
 
-					.image_prod("apple.png")
-					.category(phoneCat)
-					.build();
 
 			Product watch = Product.builder()
 					.name_prod("Apple Watch Serie 9")
@@ -92,7 +83,7 @@ public class CatalogServiceApplication {
 					.price(300.00)
 					.qte_prod(50)
 					.image_prod("power.png")
-					.category(headPhones)
+					.category(laptop)
 					.build();
 
 			Product airpodsMax = Product.builder()
