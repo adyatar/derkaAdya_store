@@ -38,9 +38,7 @@ public class ProductController {
         return productService.nbrProducts();
     }
 
-<<<<<<< HEAD:catalog-service/src/main/java/ma/store/inventoryservice/web/ProductController.java
    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
-=======
     @GetMapping("/products/{id}")
     public List<Product> getProductByCategoryId(@PathVariable Long id)
     {
@@ -50,7 +48,6 @@ public class ProductController {
 
 
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e:catalog-service/src/main/java/ma/store/catalogservice/web/ProductController.java
     @PostMapping("/product")
     public ResponseEntity addProduct(@RequestBody ProductDto productDto){
         Product product = mapper.mapTo(productDto);

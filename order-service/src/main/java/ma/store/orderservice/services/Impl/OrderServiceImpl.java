@@ -73,13 +73,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-<<<<<<< HEAD
     public Double sumTotalPrice() {
         return orderRepository.sumTotalPrice();
     }
 
 
-=======
     public Long getUserIdFromToken(Authentication authentication) {
         if (authentication.getPrincipal() instanceof Jwt jwt) {
             String userIdClaim = "userId";
@@ -87,5 +85,5 @@ public class OrderServiceImpl implements OrderService {
         }
         return null;
     }
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e
+
 }
