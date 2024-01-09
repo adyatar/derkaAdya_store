@@ -24,7 +24,9 @@ public class CatalogServiceApplication {
 		return args -> {
 			Category phoneCat = Category.builder()
 					.name_cat("Phone")
-					.img_name("apple.png")
+
+					.img_name("phoneCat.png")
+
 					.build();
 
 			Category watchCat = Category.builder()
@@ -38,7 +40,9 @@ public class CatalogServiceApplication {
 			Category headPhones = Category.builder()
 					.name_cat("HeadPhones")
 					.img_name("HeadPhonesCat.jpg")
+
 					.build();
+
 
 			// Save categories
 			categoryRepository.save(phoneCat);
@@ -54,8 +58,8 @@ public class CatalogServiceApplication {
 					.qte_prod(50)
 					.category(phoneCat)
 					.image_prod("huawei.png")
-					
 					.build();
+
 
 			Product product2 = Product.builder()
 					.name_prod("Smartphone")

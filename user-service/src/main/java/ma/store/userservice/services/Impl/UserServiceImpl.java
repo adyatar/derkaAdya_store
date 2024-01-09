@@ -47,12 +47,10 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    @Override
+
     public long nbrUsers() {
         return userRepository.count();
     }
-
-
 
     public Long findUserIdByEmail(String email) {
         User user = userRepository.findByEmail(email)
