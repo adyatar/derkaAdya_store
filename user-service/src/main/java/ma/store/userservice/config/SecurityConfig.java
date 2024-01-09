@@ -51,13 +51,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-<<<<<<< HEAD
-                .csrf(AbstractHttpConfigurer::disable)                         //,"/user/**"
-                .authorizeHttpRequests(auth->auth.requestMatchers("/logout/**","/token/**","/h2-console/**","/register/**","/user/**").permitAll())
-=======
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth->auth.requestMatchers("/token/**","/h2-console/**","/register/**").permitAll())
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e
+                .authorizeHttpRequests(auth->auth.requestMatchers("/logout/**","/token/**","/h2-console/**","/register/**","/user/**").permitAll())
                 .headers(headers->headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .authorizeHttpRequests(auth->auth.anyRequest().authenticated())
                 .sessionManagement(sess->sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

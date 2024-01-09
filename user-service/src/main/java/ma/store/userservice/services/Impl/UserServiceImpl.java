@@ -48,11 +48,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-<<<<<<< HEAD
     public long nbrUsers() {
         return userRepository.count();
     }
-=======
+
+
+
     public Long findUserIdByEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -68,5 +69,4 @@ public class UserServiceImpl implements UserService {
     }
 
 
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e
 }

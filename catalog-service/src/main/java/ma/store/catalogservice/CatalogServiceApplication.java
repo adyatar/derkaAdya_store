@@ -24,16 +24,11 @@ public class CatalogServiceApplication {
 		return args -> {
 			Category phoneCat = Category.builder()
 					.name_cat("Phone")
-<<<<<<< HEAD:catalog-service/src/main/java/ma/store/inventoryservice/CatalogServiceApplication.java
-					.img_name("phoneCat.png")
-=======
 					.img_name("apple.png")
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e:catalog-service/src/main/java/ma/store/catalogservice/CatalogServiceApplication.java
 					.build();
 
 			Category watchCat = Category.builder()
 					.name_cat("Watch")
-<<<<<<< HEAD:catalog-service/src/main/java/ma/store/inventoryservice/CatalogServiceApplication.java
 					.img_name("watchCat.png")
 					.build();
 			Category laptop = Category.builder()
@@ -43,17 +38,6 @@ public class CatalogServiceApplication {
 			Category headPhones = Category.builder()
 					.name_cat("HeadPhones")
 					.img_name("HeadPhonesCat.jpg")
-=======
-					.img_name("watch.png")
-					.build();
-			Category laptop = Category.builder()
-					.name_cat("Laptop")
-					.img_name("watch.png")
-					.build();
-			Category headPhones = Category.builder()
-					.name_cat("HeadPhones")
-					.img_name("watch.png")
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e:catalog-service/src/main/java/ma/store/catalogservice/CatalogServiceApplication.java
 					.build();
 
 			// Save categories
@@ -73,9 +57,6 @@ public class CatalogServiceApplication {
 					
 					.build();
 
-<<<<<<< HEAD:catalog-service/src/main/java/ma/store/inventoryservice/CatalogServiceApplication.java
-
-=======
 			Product product2 = Product.builder()
 					.name_prod("Smartphone")
 					.desc_prod("Latest model smartphone")
@@ -85,7 +66,6 @@ public class CatalogServiceApplication {
 					.image_prod("apple.png")
 					.category(phoneCat)
 					.build();
->>>>>>> b17c3d122d5b2a246e53d500edb950bbfc39c82e:catalog-service/src/main/java/ma/store/catalogservice/CatalogServiceApplication.java
 
 			Product watch = Product.builder()
 					.name_prod("Apple Watch Serie 9")
