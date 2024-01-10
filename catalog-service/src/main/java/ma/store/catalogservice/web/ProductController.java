@@ -38,13 +38,11 @@ public class ProductController {
         return productService.nbrProducts();
     }
 
-   @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @GetMapping("/products/{id}")
     public List<Product> getProductByCategoryId(@PathVariable Long id)
     {
         return productService.getProductsByCategoryId(id);
     }
-
 
 
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
